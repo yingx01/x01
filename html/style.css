@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+body {
+  font-family: "Times New Roman", "宋体"; /* "Libertinus Serif", "Latin Modern Roman 12", "Palatino Linotype"*/
+  line-height: 1.4em; padding: 0.5em; hyphens: auto;
+}
+
+p { text-align: justify; margin: 0.5em 0 }
+
+h1, h2, h3, h4, .hh1, .hh2 {
+  font-family: "Libertinus Serif Semibold", "华文中宋";
+  /* font-family: "Libertinus Serif Semibold", "微软雅黑 Light"; */
+  font-weight: normal;
+  text-indent: 0em;
+  /* page-break-after: auto;
+  page-break-before: avoid; */
+  margin-top: 0.5em;
+  margin-bottom: -0.3em;
+}
+
+.hh1 {margin-top: 0em}
+
+h1, .hh1 { font-size: 1.25em; }
+h2, .hh2 { font-size: 1.2em; } h3, h4 { font-size: 1.0em;}
+
+.s, .footnote, .ft { font-size: 0.8em; line-height: 1.4em; }
+.ss, .copyright { font-size: 0.6em; line-height: 1.2em; }
+
+code, pre { font-family: "Latin Modern Mono 10", "Consolas"; font-size: 0.8em; line-height: 1.4em; }
+
+img { background-color: #fff; border-radius: 4px; }
+.fleft { float: left; margin-right: 0.8em; }
+.fright { float: right; margin-left: 0.8em; }
+
+table {
+  border-collapse: collapse; border: none;
+  border-top: solid 2px black; border-bottom: solid 2px black;
+  font-size: 0.8em; page-break-inside: avoid;
+}
+
+tr {
+  padding: 0.1em; border: none;
+  border-top: solid 1px black; border-bottom: solid 1px black;
+}
+
+th { padding: 0.1em 0.5em; text-align: center; }
+td { padding: 0.1em 0.5em; text-align: left; vertical-align: middle }
+
+.tnb table, .tnb tr, .tnb td, .tnb { border: none; }
+
+.times, .times code, .times pre { font-family: "Libertinus Serif", "Times New Roman", "宋体" }
+.refx >li, .bib >li { line-height: 1.2rem;  font-family: "Libertinus Serif", "Times New Roman", "宋体" }
+.refx >li::marker, .bib >li::marker { content: "["counter(list-item)"]. "; }
+
+blockquote { border-left: 5px double; padding-left: 2em; }
+
+figure { text-align: center; }
+figure img { background-color: #fff; border-radius: 5px; max-width: 75%; }
+figure p, figcaption, caption {
+  font-family: "Libertinus Serif", "Times New Roman", "楷体";
+  font-size: 0.7em; line-height: 1.25em;
+  text-align: center; padding: 0 2em;
+}
+
+hr {
+  margin: 0 auto; border: 0;
+  color: #7fffd4; background-color: #7fffd4;
+  height: 1px; width: 50%;
+}
+
+dd { line-height: 1.4em; padding-left: 8.5em }
+dt { float: left; line-height: 1.5em; }
+
+.onote { font-size: 0.75em; font-family: "Libertinus Serif", "Times New Roman", "楷体"; }
+.onote::before, .ft::before { content: "["; }
+.onote::after, .ft::after { content: "]"; }
+
+.box{ padding: 0 0.5em; border: 1px solid; border-radius: 3px; }
+
+.pg { page-break-before: always; page-break-after: avoid; }
+
+@media screen {
+  body {
+    color: #22cc22; background-color: #25292E;
+    /* color: #2c2; background-color: #222; */
+    font-family: "Libertinus Serif", "Palatino Linotype", "华文仿宋"; /* "微软雅黑 Light"; */
+    /* color: #ddd; background-color: #002450; */
+    font-size: 1.5em; line-height: 2em;
+  }
+  h1, h2, h3, .hh1, .hh2 { color: #f75;}
+
+  table, tr { border-top-color: #eee; border-bottom-color: #eee; }
+
+  b, blockquote, strong { color: #900; }
+  i, em, .footnote, .ft, .copyright { color: #f0c; }
+  code, pre { color: #0df; }
+  a { color: #06d; }
+  mjx-container{ color: #a0a; }
+  .onote, sup, sub { color:#f05 }
+  
+  .ygb { background-color: #555; color: #f70; }
+  
+  /*
+  body {
+    overflow-y: scroll;
+    scrollbar-width: 0px;
+}
+  ::-webkit-scrollbar {
+    display: none;
+ } */
+}
+
+@media print {
+  .ygb, mark { font-weight: bolder; text-decoration: underline; }
+  i, b, strong { font-style: normal; font-weight: bolder; }
+  a, a:visited, a:hover { color: #000; text-decoration:none; }
+  .refx i, .bib i {font-style: italic; font-weight: normal;}
+}
+
+/* 通过body id 来启用标题的编号 */
+body#num { counter-reset: s1; }
+body#num>h1 { counter-reset: s2; }
+body#num>h2 { counter-reset: s3; }
+body#num>h3 { counter-reset: s4; }
+body#num>h1::before {
+  counter-increment: s1;
+  content: counter(s1) ". ";
+}
+
+body#num>h2::before {
+  counter-increment: s2;
+  content: counter(s1) "." counter(s2) " ";
+}
+
+body#num>h3::before {
+  counter-increment: s3;
+  content: counter(s1) "." counter(s2) "." counter(s3) " ";
+}
+
+body#num>h4::before {
+  counter-increment: s4;
+  content: counter(s1) "." counter(s2) "." counter(s3)"." counter(s4) " ";
+}
+
+/* mjx-container{ font-size: 0.8em; } */
